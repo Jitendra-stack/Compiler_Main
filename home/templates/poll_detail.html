@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Poll Detail</title>
+  </head>
+  <body>
+    <h1>{{ req_poll.statement }}</h1>
+
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Vote</button>
+    </form>
+
+    <h2>Current Votes:</h2>
+    <ul>
+      <li>Option 1 is {{req_poll.option1}}: {{ req_poll.vote1 }}</li>
+      <li>Option 2 is {{req_poll.option2}}: {{ req_poll.vote2 }}</li>
+      <li>Option 3 is {{req_poll.option3}}: {{ req_poll.vote3 }}</li>
+    </ul>
+  </body>
+</html>
